@@ -728,7 +728,7 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 40px;
-        max-width: 1200px;
+        max-width: 900px;
         margin: 0 auto;
        }
 
@@ -744,6 +744,7 @@
        .project-card:hover {
         transform: translateY(-10px);
         box-shadow: 0 15px 40px rgba(0, 238, 255, 0.4);
+        padding:10px
        }
 
        .project-image {
@@ -964,6 +965,15 @@
             grid-template-columns: 1fr;
         }
        }
+       .pro-img{
+        height:200px;
+        width:900px;
+       }
+       .btn-container {
+        display: flex;
+        justify-content: center; /* horizontal center */
+        margin-bottom: 10px;
+        }
 
        @media screen and (max-width: 480px) {
         section {
@@ -1001,13 +1011,44 @@
         text-align: center;
         font-weight: 500;
         }
+        .loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: #0f172a; /* dark bg (your theme) */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Optional animation */
+.loader img {
+  animation: bounce 1.2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
     </style>
       <title>SHUBHA</title>
-
     <!-- Favicon -->
     <link rel="icon" href="Photo\Favicorn3.png" type="image/svg+xml">
 </head>
 <body>
+  <div id="loader" class="loader">
+  <picture>
+  <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6f8/512.webp" type="image/webp">
+  <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f6f8/512.gif" alt="🛸" width="180" height="180">
+</picture>
+</div>
    <div class="animated-background">
         <div class="gradient-orb orb1"></div>
         <div class="gradient-orb orb2"></div>
@@ -1046,7 +1087,8 @@
    <!-- Home Section -->
    <section id="home">
    <div class="home-content">
-  <p class="para">Hello! my name is </p>
+    <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Waving%20Hand.png" alt="Waving Hand" width="85" height="85" />
+  <p class="para">Hii ! my name is </p>
   <h1>Shubhankar</h1>
 
   <h1>
@@ -1070,25 +1112,19 @@
   <div class="timeline">
 
     <div class="event left">
-      <h3>2022</h3>
-      <p>Discovered my passion for technology and problem-solving. Started learning programming fundamentals.</p>
-    </div>
-
-    <div class="event right">
-      <h3>2023</h3>
+      <h3>2024</h3>
       <p>Improved coding skills and explored different technologies while building small projects.</p>
     </div>
 
-    <div class="event left">
-      <h3>2024</h3>
+    <div class="event right">
+      <h3>2025</h3>
       <p>Worked on real-world projects, strengthened development skills, and gained practical experience.</p>
     </div>
 
-    <div class="event right">
-      <h3>Now</h3>
-      <p>Continuously learning, building, and pushing boundaries to grow as a professional developer.</p>
+    <div class="event left">
+       <h3>Now</h3>
+      <p>Continuously learning, building, and pushing boundaries to grow as a professional developer, while actively exploring and strengthening my foundation in Machine Learning to create intelligent and impactful solutions.</p>
     </div>
-
   </div>
 </section>
 
@@ -1420,31 +1456,43 @@
    <section id="projects">
     <h2 class="section-title">Projects</h2>
     <div class="projects-container">
-        <div class="project-card">
-            <div class="project-image">🤖</div>
+        <div class="project-card ">
+            <div class="project-image">
+              <img src="Photo\Screenshot 2026-03-21 002102.png" class="pro-img"/>
+            </div>
             <div class="project-content">
-                <h3>AI Chatbot Assistant</h3>
-                <p>An intelligent chatbot powered by machine learning that provides natural language interactions and context-aware responses.</p>
+                <h3>Portfolio</h3>
+                <p>This portfolio is a personal project showcasing my skills.It is uilt using HTML, CSS, and JavaScript, it features a modern, responsive design with interactive elements. It reflects my frontend abilities and creativity. </p>
                 <div class="project-tags">
-                    <span class="tag">Python</span>
-                    <span class="tag">TensorFlow</span>
-                    <span class="tag">NLP</span>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">JavaScript</span>
                 </div>
+            </div>
+            <div class="btn-container">
+              <a href="https://github.com/shubhankarmishra165-lang/myPortfolio" target="_blank">
+                  <button class="submit-btn">GitHub</button>
+                </a>
             </div>
         </div>
         <div class="project-card">
-            <div class="project-image">🌐</div>
+            <div class="project-image">
+              <picture>
+            <source srcset="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.webp" type="image/webp">
+            <img src="https://fonts.gstatic.com/s/e/notoemoji/latest/1f680/512.gif" alt="🚀" width="80" height="80">
+              </picture>
+            </div>
             <div class="project-content">
-                <h3>E-Commerce Platform</h3>
-                <p>A full-stack e-commerce solution with modern UI, secure payments, and real-time inventory management.</p>
-                <div class="project-tags">
-                    <span class="tag">React</span>
-                    <span class="tag">Node.js</span>
-                    <span class="tag">MongoDB</span>
-                </div>
+                <h3>Many More comming soon...</h3>
+                <p>I am currently working on several exciting upcoming projects that focus on building practical, real-world solutions using modern technologies. I am constantly experimenting with new ideas and tools to enhance my creativity and technical knowledge. Stay tuned for innovative and impactful projects that I will be sharing soon.</p>
+                <!-- <div class="project-tags">
+                    <span class="tag"></span>
+                    <span class="tag"></span>
+                    <span class="tag"></span>
+                </div> -->
             </div>
         </div>
-        <div class="project-card">
+        <!-- <div class="project-card">
             <div class="project-image">📊</div>
             <div class="project-content">
                 <h3>Data Visualization Dashboard</h3>
@@ -1455,8 +1503,8 @@
                     <span class="tag">Python</span>
                 </div>
             </div>
-        </div>
-        <div class="project-card">
+        </div> -->
+        <!-- <div class="project-card">
             <div class="project-image">📱</div>
             <div class="project-content">
                 <h3>Mobile Fitness App</h3>
@@ -1476,8 +1524,8 @@
                 <div class="project-tags">
                     <span class="tag">React</span>
                     <span class="tag">TypeScript</span>
-                    <span class="tag">Storybook</span>
-                </div>
+                    <span class="tag">Storybook</span> -->
+                <!-- </div>
             </div>
         </div>
         <div class="project-card">
@@ -1491,7 +1539,7 @@
                     <span class="tag">React</span>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
    </section>
 
@@ -1578,6 +1626,13 @@
 
                     <script>
 /* ===== Mobile Menu Toggle ===== */
+window.addEventListener("load", () => {
+  const loader = document.getElementById("loader");
+
+  setTimeout(() => {
+    loader.style.display = "none";
+  }, 3500); 
+});
 function toggleMenu() {
     const navLinks = document.querySelector(".nav-links");
     navLinks.classList.toggle("active");

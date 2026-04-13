@@ -145,109 +145,95 @@
     left: 12px;
   }
 }
-
-.skill-card {
-  width: 260px;
-  height: 180px;
-  perspective: 1000px;
+/* --- Education Block inside .event --- */
+.edu-divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(0, 198, 255, 0.4), transparent);
+  margin: 16px 0;
 }
 
-.skill-card-inner {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.8s;
+.edu-label {
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  
+  /* color: rgba(0, 198, 255, 0.6); */
+  margin: 0 0 12px;
 }
 
-/* Flip on hover or arrow focus */
-.skill-card:hover .skill-card-inner {
-  transform: rotateY(180deg);
-}
-
-.skill-card-front,
-.skill-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  border-radius: 12px;
-  padding: 20px;
-}
-
-/* FRONT */
-.skill-card-front {
-  background: #1e1e2f;
-  color: white;
-  padding:15px;
-}
-
-.skill-card-front p {
-  color: white;
-}
-
-.skill-bar {
-  background: #333;
-  height: 8px;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-
-.skill-progress {
-  width: 85%;
-  height: 100%;
-  background: #4caf50;
-  border-radius: 5px;
-}
-
-/* BACK */
-.skill-card-back {
-  background: #0f172a;
-  color: white;
-  transform: rotateY(180deg);
+.edu-grid {
   display: flex;
   flex-direction: column;
+  gap: 10px;
+}
+
+.edu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0, 198, 255, 0.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.edu-item:hover {
+  border-color: rgba(0, 198, 255, 0.45);
+  background: rgba(0, 198, 255, 0.07);
+}
+
+.edu-logo {
+  width: 55px;
+  height: 55px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.skill-card-back img {
-  width: 60px;
-  margin-bottom: 10px;
+.logo-x     { background: rgba(0, 198, 255, 0.12); }
+.logo-xii   { background: rgba(255, 45, 117, 0.12); }
+.logo-btech { background: rgba(120, 80, 255, 0.15); }
+
+.edu-info { flex: 1; min-width: 0; }
+
+.edu-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: #dce6f1;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-@media (max-width: 768px) {
-  .skills-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 🔥 ALWAYS 2 per row */
-    gap: 12px;
-  }
 
-  .skill-card {
-    width: 100%;        /* fill grid cell */
-    height: 160px;
-  }
-
-  .skill-card-front h3 {
-    font-size: 14px;
-  }
-
-  .skill-card-front p {
-    font-size: 11px;
-  }
-
-  .skill-bar {
-    height: 6px;
-  }
-
-  .skill-card-back img {
-    width: 38px;
-    height: 38px;
-  }
-
-  .skill-card-back span {
-    font-size: 13px;
-  }
+.edu-meta {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
 }
+
+.edu-year {
+  font-size: 14px;
+  color: rgba(220, 230, 241, 0.5);
+}
+
+.edu-badge {
+  font-size: 14px;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+
+.badge-cyan   { background: rgba(0, 198, 255, 0.15); color: #00c6ff; border: 1px solid rgba(0, 198, 255, 0.3); }
+.badge-pink   { background: rgba(255, 45, 117, 0.15); color: #ff2d75; border: 1px solid rgba(255, 45, 117, 0.3); }
+.badge-purple { background: rgba(120, 80, 255, 0.15); color: #a78bfa; border: 1px solid rgba(120, 80, 255, 0.3); }
+
 
 
 
@@ -305,6 +291,7 @@
         border-radius: 50%;
         box-shadow: 0 0 10px rgba(0, 238, 255, 0.5);
         animation: rise 15s linear infinite;
+        
        }
 
        .particle:nth-child(even) {
@@ -611,12 +598,12 @@
 
 
        .home-image {
-        flex: 0 0 300px;
+        flex: 0 0 350px;
        }
 
        .image{
-        height: 350px;
-        width: 350px;
+        height: 300px;
+        width: 300px;
         border-radius: 50%;
         align-self: center;
         background: linear-gradient(135deg, #0ef, #ff2d75);
@@ -676,7 +663,52 @@
         text-align: justify;
        }
 
-       /* Skills Section */
+/* Marquee wrapper */
+.marquee-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  overflow: hidden;
+  width: 100%;
+}
+
+/* Fade edges — polished marquee look */
+.marquee-row {
+  overflow: hidden;
+  width: 100%;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* Scrolling track */
+.marquee-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scrollLeft 20s linear infinite;
+}
+
+.marquee-track.marquee-reverse {
+  animation: scrollRight 20s linear infinite;
+}
+
+/* Pause on hover (desktop) */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Keyframes */
+@keyframes scrollLeft {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+  0%   { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+ /* Skills Section */
        .skills-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -722,6 +754,236 @@
         border-radius: 10px;
         transition: width 1s ease;
        }
+       .skill-card {
+  width: 260px;
+  height: 180px;
+  perspective: 1000px;
+}
+
+.skill-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+/* Flip on hover or arrow focus */
+.skill-card:hover .skill-card-inner {
+  transform: rotateY(180deg);
+}
+
+.skill-card-front,
+.skill-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+/* FRONT */
+.skill-card-front {
+  background: #1e1e2f;
+  color: white;
+  padding:15px;
+}
+
+.skill-card-front p {
+  color: white;
+}
+
+.skill-bar {
+  background: #333;
+  height: 8px;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+/* BACK */
+.skill-card-back {
+  background: #0f172a;
+  color: white;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-card-back img {
+  width: 60px;
+  margin-bottom: 10px;
+}
+@media (max-width: 768px) {
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 🔥 ALWAYS 2 per row */
+    gap: 12px;
+  }
+
+  .skill-card {
+    width: 100%;        /* fill grid cell */
+    height: 160px;
+  }
+
+  .skill-card-front h3 {
+    font-size: 14px;
+  }
+
+  .skill-card-front p {
+    font-size: 11px;
+  }
+
+  .skill-bar {
+    height: 6px;
+  }
+
+  .skill-card-back img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .skill-card-back span {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skill-card {
+    width: 160px;
+    height: 130px;
+  }
+
+  .skill-card-front {
+    padding: 12px;
+  }
+
+  .skill-card-front h3 {
+    font-size: 0.95rem;
+    margin-bottom: 6px;
+  }
+
+  .skill-card-front p {
+    font-size: 0.68rem;
+  }
+
+  .skill-bar {
+    display: none;
+  }
+
+  .skill-card-back img {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 8px;
+  }
+
+  .skill-card-back span {
+    font-size: 0.85rem;
+  }
+
+  .marquee-track { gap: 14px; animation-duration: 16s; }
+  .marquee-wrapper { gap: 16px; }
+}
+
+/* ── Mobile (max 480px) ── */
+@media (max-width: 480px) {
+  .skill-card {
+    width: 150px;
+    height: 120px;
+  }
+  .skill-card-inner{
+     width: 130px;
+    height: 110px;
+  }
+  .skill-bar {
+    display: none;
+  }
+
+  .skill-card-front {
+    padding: 10px;
+  }
+
+  .skill-card-front h3 {
+    font-size: 0.62rem;
+    margin-bottom: 4px;
+  }
+
+  .skill-card-front p {
+    font-size: 0.50rem;
+  }
+
+  .skill-bar {
+    height: 5px;
+    margin-top: 12px;
+  }
+
+  .skill-card-back img {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 6px;
+  }
+
+  .skill-card-back span {
+    font-size: 0.75rem;
+  }
+
+  .marquee-track { gap: 10px; animation-duration: 14s; }
+  .marquee-wrapper { gap: 12px; }
+
+  .marquee-row {
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%);
+  }
+}
+
+/* ── Very small (max 360px) ── */
+@media (max-width: 360px) {
+  .skill-card {
+    width: 110px;
+    height: 95px;
+  }
+
+  .skill-card-front {
+    padding: 8px;
+  }
+  .skill-bar {
+    display: none;
+  }
+
+  .skill-card-front h3 {
+    font-size: 0.72rem;
+    margin-bottom: 3px;
+  }
+
+  .skill-card-front p {
+    font-size: 0.54rem;
+  }
+
+  .skill-bar {
+    height: 4px;
+    margin-top: 5px;
+  }
+
+  .skill-card-back img {
+    width: 26px;
+    height: 26px;
+    margin-bottom: 5px;
+  }
+
+  .skill-card-back span {
+    font-size: 0.65rem;
+  }
+
+  .marquee-track { gap: 8px; animation-duration: 12s; }
+}
+
+/* ── Respect reduced motion ── */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track,
+  .marquee-track.marquee-reverse { animation: none; }
+}
 
        /* Projects Section */
        .projects-container {
@@ -1037,6 +1299,98 @@
     transform: translateY(-20px);
   }
 }
+.download-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  background: linear-gradient(90deg, #0ef, #ff2d75);
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-top: 20px;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(0, 238, 255, 0.5);
+}
+
+/* ─── Hide default cursor everywhere ─── */
+*, *::before, *::after {
+  cursor: none !important;
+}
+
+
+/* ─── Inner dot — exact position ─── */
+#cursor-dot { 
+  position: fixed;
+  display: none;        /* ← ADD THIS LINE */
+  top: 0; 
+  left: 0; 
+  width: 15px; 
+  height: 15px; 
+  background: #ff2d75;
+  border-radius: 50%;
+ pointer-events: none; 
+ z-index: 99999; 
+ transform: translate(-50%, -50%); 
+ transition: width 0.15s, height 0.15s, background 0.2s; 
+ box-shadow: 0 0 10px #ff2d75, 0 0 25px rgba(245, 4, 4, 0.6); will-change: transform; }
+
+/* ─── Outer ring — spring lags behind ─── */
+#cursor-ring {
+  position: fixed;
+  display: none;
+  top: 0; left: 0;
+  width: 55px;
+  height: 55px;
+  border: 1.5px solid rgba(0, 212, 255, 0.75);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.25s, height 0.25s, border-color 0.25s, background 0.25s;
+  box-shadow: 0 0 25px rgba(0,212,255,0.25), inset 0 0 19px rgba(0,212,255,0.05);
+  will-change: transform;
+}
+
+/* ─── Hover over links / buttons ─── */
+body.cursor-hover #cursor-dot {
+  width: 10px;
+  height: 10px;
+  background: #0ef;
+  box-shadow: 0 0 10px #a3eaff, 0 0 24px rgba(0,212,255,0.8);
+}
+
+body.cursor-hover #cursor-ring {
+  width: 40px;
+  height: 40px;
+  border-color: rgb(234, 14, 14);
+  background: rgba(0, 212, 255, 0.06);
+  box-shadow: 0 0 20px rgba(227, 1, 1, 0.4), inset 0 0 20px rgba(0,212,255,0.08);
+}
+
+/* ─── Click / mousedown ─── */
+body.cursor-click #cursor-dot {
+  width: 5px;
+  height: 5px;
+  background: #00ffcc;
+}
+
+body.cursor-click #cursor-ring {
+  width: 28px;
+  height: 28px;
+  border-color: #00ffcc;
+  box-shadow: 0 0 16px rgba(0,255,204,0.5);
+}
+
+/* ─── Hide on touch devices ─── */
+@media (hover: none) {
+  #cursor-dot, #cursor-ring { display: none; }
+  *, *::before, *::after { cursor: auto !important; }
+}
     </style>
       <title>SHUBHA</title>
     <!-- Favicon -->
@@ -1083,7 +1437,9 @@
         </div>
     </nav>
    </div>
-
+<!-- CURSOR ELEMENTS -->
+<div id="cursor-dot"></div>
+<div id="cursor-ring"></div>
    <!-- Home Section -->
    <section id="home">
    <div class="home-content">
@@ -1097,11 +1453,12 @@
       <span id="flipText"></span>
     </span>
   </h1>
+ <a href="resume.pdf" download class="download-btn">Download Resume</a>
 </div>
 
     <div class="home-image">
         <div >
-            <img src="Photo\prof_image.jpg" class="image"/>
+            <img src="Photo\prof_pho.jpeg" class="image"/>
         </div>
     </div>
    </section>
@@ -1113,17 +1470,59 @@
 
     <div class="event left">
       <h3>2024</h3>
-      <p>Improved coding skills and explored different technologies while building small projects.</p>
+      <p>I completed my schooling with strong academic performance, developing discipline, critical thinking, and a passion for learning.</p>
+      <div class="edu-grid">
+        <div class="edu-divider"></div>
+        <p class="edu-label">Education</p>
+    <!-- Class X -->
+        <div class="edu-item">
+          <div class="edu-logo logo-x">🏫</div>
+          <div class="edu-info">
+            <p class="edu-name">Kantakabi High School(Class X)</p>
+            <div class="edu-meta">
+              <span class="edu-year">Passed · 2022</span>
+              <span class="edu-badge badge-cyan">86.3%</span>
+            </div>
+      </div>
+    </div>
+    </div>
     </div>
 
     <div class="event right">
       <h3>2025</h3>
-      <p>Worked on real-world projects, strengthened development skills, and gained practical experience.</p>
+      <p>I completed my XII in the Science stream, building strong analytical and problem-solving skills while securing the highest marks in my batch, reflecting my dedication, discipline, and commitment to excellence.</p>
+      <div class="edu-grid">
+        <div class="edu-divider"></div>
+            <p class="edu-label">Education</p>
+          <div class="edu-item">
+          <div class="edu-logo logo-xii">🎓</div>
+          <div class="edu-info">
+            <p class="edu-name">Abartan INST. of Morden Science H.S.School (Class XII)</p>
+            <div class="edu-meta">
+              <span class="edu-year">Passed · 2024</span>
+              <span class="edu-badge badge-pink">87.5%</span>
+            </div>
+          </div>
+    </div>
+    </div>
     </div>
 
     <div class="event left">
        <h3>Now</h3>
       <p>Continuously learning, building, and pushing boundaries to grow as a professional developer, while actively exploring and strengthening my foundation in Machine Learning to create intelligent and impactful solutions.</p>
+      <div class="edu-grid">
+        <div class="edu-divider"></div>
+            <p class="edu-label">Education</p>
+      <div class="edu-item">
+      <div class="edu-logo logo-btech">🏛️</div>
+      <div class="edu-info">
+        <p class="edu-name">B.Tech CSE(AI/ML) · GIET University</p>
+        <div class="edu-meta">
+          <span class="edu-year">2024 – Present</span>
+          <span class="edu-badge badge-purple">8.56 CGPA</span>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 </section>
@@ -1136,7 +1535,7 @@
     <div class="about-content">
         <div class="home-image">
         <div class="card">
-            <img src="Photo\AboutImage.jpeg" class="about-image "/>
+            <img src="Photo\about_image.png" class="about-image "/>
         </div>
     </div>
         <p>
@@ -1156,6 +1555,12 @@
   <h2 class="section-title">Skills</h2>
 
   <div class="skills-container">
+    <div class="marquee-wrapper">
+ 
+    <!-- ROW 1: Right to Left -->
+    <div class="marquee-row">
+      <div class="marquee-track">
+        <!-- Original set -->
          <div class="skill-card">
         <div class="skill-card-inner">
 
@@ -1187,7 +1592,150 @@
     <!-- FRONT SIDE -->
     <div class="skill-card-front">
       <h3>C++</h3>
-      <p>Data Structures & Algorithms</p>
+      <p>Programming Language</p>
+      <div class="skill-bar">
+        <div class="skill-progress"></div>
+      </div>
+    </div>
+
+    <!-- BACK SIDE -->
+    <div class="skill-card-back">
+      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++">
+      <span>C++</span>
+    </div>
+
+  </div>
+</div>
+
+     <div class="skill-card">
+  <div class="skill-card-inner">
+
+    <!-- FRONT -->
+    <div class="skill-card-front">
+      <h3>Java</h3>
+      <p style="color: white;">Programming Language</p>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 70%"></div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="skill-card-back">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+        alt="Java Icon"
+      />
+      <span>Java</span>
+    </div>
+
+  </div>
+</div>
+
+   <div class="skill-card">
+  <div class="skill-card-inner">
+
+    <!-- FRONT -->
+    <div class="skill-card-front">
+      <h3>HTML</h3>
+      <p style="color: white;">Markup Language</p>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 85%"></div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="skill-card-back">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+        alt="HTML Icon"
+      />
+      <span>HTML</span>
+    </div>
+
+  </div>
+</div>
+
+
+   <div class="skill-card">
+  <div class="skill-card-inner">
+
+    <!-- FRONT -->
+    <div class="skill-card-front">
+      <h3>CSS</h3>
+      <p style="color: white;">Styling Language</p>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 80%"></div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="skill-card-back">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+        alt="CSS Icon"
+      />
+      <span>CSS</span>
+    </div>
+
+  </div>
+</div>
+
+<!-- Duplicate set (for seamless loop) -->
+   <div class="skill-card">
+  <div class="skill-card-inner">
+
+    <!-- FRONT -->
+    <div class="skill-card-front">
+      <h3>JavaScript</h3>
+      <p style="color: white;">Programming Language</p>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 88%"></div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="skill-card-back">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+        alt="JavaScript Icon"
+      />
+      <span>JavaScript</span>
+    </div>
+
+  </div>
+</div>
+         <div class="skill-card">
+        <div class="skill-card-inner">
+
+        <!-- FRONT -->
+        <div class="skill-card-front">
+            <h3>Python</h3>
+            <p style="color: white;">Programming Language</p>
+            <div class="skill-bar">
+            <div class="skill-progress" style="width: 90%"></div>
+            </div>
+        </div>
+
+        <!-- BACK -->
+        <div class="skill-card-back">
+            <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+            alt="Python Icon"
+            />
+            <span>Python</span>
+        </div>
+
+    </div>
+    </div>
+
+
+   <div class="skill-card">
+  <div class="skill-card-inner">
+
+    <!-- FRONT SIDE -->
+    <div class="skill-card-front">
+      <h3>C++</h3>
+      <p>Programming Language</p>
       <div class="skill-bar">
         <div class="skill-progress"></div>
       </div>
@@ -1299,6 +1847,13 @@
 
   </div>
 </div>
+
+</div>
+</div>
+
+<!-- ROW 2: Left to Right -->
+    <div class="marquee-row">
+      <div class="marquee-track marquee-reverse">
 
 <div class="skill-card">
   <div class="skill-card-inner">
@@ -1427,7 +1982,153 @@
 
     <!-- FRONT -->
     <div class="skill-card-front">
-      <h3>Machine Learning</h3>
+      <h3>ML</h3>
+      <p style="color: white;">AI / Data Science</p>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 55%"></div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="skill-card-back">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png"
+        alt="Brain Icon"
+      />
+      <span>ML</span>
+    </div>
+
+  </div>
+</div>
+<!-- Duplicate set (for seamless loop) -->
+<div class="skill-card">
+  <div class="skill-card-inner">
+
+    <!-- FRONT -->
+    <div class="skill-card-front">
+      <h3>React</h3>
+      <p style="color: white;">JavaScript Library</p>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 85%"></div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="skill-card-back">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+        alt="React Icon"
+      />
+      <span>React</span>
+    </div>
+
+  </div>
+</div>
+
+
+    <div class="skill-card">
+  <div class="skill-card-inner">
+
+    <!-- FRONT -->
+    <div class="skill-card-front">
+      <h3>Node.js</h3>
+      <p style="color: white;">Backend Runtime</p>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 80%"></div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="skill-card-back">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"
+        alt="Node.js Icon"
+      />
+      <span>Node.js</span>
+    </div>
+
+  </div>
+</div>
+
+    <div class="skill-card">
+  <div class="skill-card-inner">
+
+    <!-- FRONT -->
+    <div class="skill-card-front">
+      <h3>SQL</h3>
+      <p style="color: white;">Database Language</p>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 75%"></div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="skill-card-back">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+        alt="SQL Icon"
+      />
+      <span>SQL</span>
+    </div>
+
+  </div>
+</div>
+
+
+   <div class="skill-card">
+  <div class="skill-card-inner">
+
+    <!-- FRONT -->
+    <div class="skill-card-front">
+      <h3>Git</h3>
+      <p style="color: white;">Version Control System</p>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 80%"></div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="skill-card-back">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+        alt="Git Icon"
+      />
+      <span>Git</span>
+    </div>
+
+  </div>
+</div>
+
+<div class="skill-card">
+  <div class="skill-card-inner">
+
+    <!-- FRONT -->
+    <div class="skill-card-front">
+      <h3>FastAPI</h3>
+      <p>Python Web Framework</p>
+      <div class="skill-bar">
+        <div class="skill-progress" style="width: 75%"></div>
+      </div>
+    </div>
+
+    <!-- BACK -->
+    <div class="skill-card-back">
+      <img
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg"
+        alt="FastAPI Icon"
+      />
+      <span>FastAPI</span>
+    </div>
+
+  </div>
+</div>
+
+    <div class="skill-card">
+  <div class="skill-card-inner">
+
+    <!-- FRONT -->
+    <div class="skill-card-front">
+      <h3>ML</h3>
       <p style="color: white;">AI / Data Science</p>
       <div class="skill-bar">
         <div class="skill-progress" style="width: 55%"></div>
@@ -1446,7 +2147,9 @@
   </div>
 </div>
 
-
+</div>
+</div>
+</div>
     
   </div>
 </section>
@@ -1458,7 +2161,7 @@
     <div class="projects-container">
         <div class="project-card ">
             <div class="project-image">
-              <img src="Photo\Screenshot 2026-03-21 002102.png" class="pro-img"/>
+              <img src="Photo\Portfolio_img.png" class="pro-img"/>
             </div>
             <div class="project-content">
                 <h3>Portfolio</h3>
@@ -1760,7 +2463,80 @@ form.addEventListener("submit", async function (e) {
 
     }, 500);
   });
+  // Tap to flip on mobile
+  document.querySelectorAll('.skill-card').forEach(card => {
+    card.addEventListener('click', () => card.classList.toggle('flipped'));
+  });
 
+  // Touch pause/resume marquee
+  document.querySelectorAll('.marquee-track').forEach(track => {
+    track.addEventListener('touchstart', () => {
+      track.style.animationPlayState = 'paused';
+    }, { passive: true });
+    track.addEventListener('touchend', () => {
+      setTimeout(() => track.style.animationPlayState = 'running', 800);
+    }, { passive: true });
+  });
+(function () {
+  const dot  = document.getElementById('cursor-dot');
+  const ring = document.getElementById('cursor-ring');
+
+  // Mouse position
+  let mx = window.innerWidth  / 2;
+  let my = window.innerHeight / 2;
+
+  // Ring spring state
+  let rx = mx, ry = my;
+  let vx = 0,  vy = 0;
+
+  // Spring constants — tune these to taste
+  const STIFFNESS = 0.14;
+  const DAMPING   = 0.75;
+
+  // Track mouse
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX;
+    my = e.clientY;
+  });
+
+  // Hover — grow ring on interactive elements
+  const hoverTargets = 'a, button, input, textarea, label, [role="button"], .skill-card, .project-card, nav a';
+  document.querySelectorAll(hoverTargets).forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+  });
+
+  // Click — shrink on press
+  document.addEventListener('mousedown', () => document.body.classList.add('cursor-click'));
+  document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-click'));
+
+  // Animation loop
+  function animate() {
+    // Dot snaps exactly to mouse
+    dot.style.transform = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+
+    // Ring springs toward mouse
+    const ax = (mx - rx) * STIFFNESS;
+    const ay = (my - ry) * STIFFNESS;
+    vx = (vx + ax) * DAMPING;
+    vy = (vy + ay) * DAMPING;
+    rx += vx;
+    ry += vy;
+
+    ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
+
+    requestAnimationFrame(animate);
+  }
+  // Only show cursor after page fully loads
+ window.addEventListener('load', () => {
+    if (dot && ring) {
+      dot.style.display = 'block';
+      ring.style.display = 'block';
+      animate();
+    }
+  });
+
+})();
 </script>
 </html>
 
